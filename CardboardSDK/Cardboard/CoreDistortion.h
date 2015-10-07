@@ -49,16 +49,10 @@ class DistortionRenderer
                       FieldOfView *leftEyeFov,
                       FieldOfView *rightEyeFov,
                       float virtualEyeToScreenDistance);
-
     
-  private:
     class DistortionMesh
     {
       public:
-        int _indices;
-        int _arrayBufferID;
-        int _elementBufferID;
-
         DistortionMesh();
         DistortionMesh(Distortion *distortionRed,
                        Distortion *distortionGreen,
@@ -71,8 +65,22 @@ class DistortionRenderer
                        float viewportWidthTexture,
                        float viewportHeightTexture,
                        bool vignetteEnabled);
+        
+        void getData(float *vertexData, int *vertices, short *indexData, int *indices);
+        
+      private:
+        float *_vertexData;
+        int _vertexCount;
+        short *_indexData;
+        int _indexCount;
     };
     
+    DistortionMesh* leftEyeDistortionMesh();
+    DistortionMesh* rightEyeDistortionMesh();
+
+    void updateDistortionMesh();
+
+private:
     struct EyeViewport
     {
       public:
@@ -107,8 +115,6 @@ class DistortionRenderer
     
     EyeViewport *initViewportForEye(FieldOfView *eyeFieldOfView, float xOffsetM);
     
-    void updateTextureAndDistortionMesh();
-
     DistortionMesh *createDistortionMesh(EyeViewport *eyeViewport,
                                          float textureWidthTanAngle,
                                          float textureHeightTanAngle,

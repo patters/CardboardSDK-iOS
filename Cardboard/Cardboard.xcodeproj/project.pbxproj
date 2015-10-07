@@ -58,6 +58,8 @@
 		705420A21BC5BCB1006C1B40 /* CardboardCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054208B1BC5B964006C1B40 /* CardboardCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		705420A31BC5BD9C006C1B40 /* CoreDistortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054209D1BC5BB56006C1B40 /* CoreDistortion.mm */; settings = {ASSET_TAGS = (); }; };
 		705420A41BC5C0B1006C1B40 /* Viewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203E1BC5B62E006C1B40 /* Viewport.mm */; settings = {ASSET_TAGS = (); }; };
+		705420AF1BC5C306006C1B40 /* Cardboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 705420AD1BC5C306006C1B40 /* Cardboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		705420B01BC5C306006C1B40 /* Cardboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420AE1BC5C306006C1B40 /* Cardboard.mm */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		7054208D1BC5B964006C1B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7054209C1BC5BB56006C1B40 /* CoreDistortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDistortion.h; sourceTree = "<group>"; };
 		7054209D1BC5BB56006C1B40 /* CoreDistortion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDistortion.mm; sourceTree = "<group>"; };
+		705420AD1BC5C306006C1B40 /* Cardboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cardboard.h; sourceTree = "<group>"; };
+		705420AE1BC5C306006C1B40 /* Cardboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cardboard.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,8 @@
 		7054208A1BC5B964006C1B40 /* CardboardCore */ = {
 			isa = PBXGroup;
 			children = (
+				705420AD1BC5C306006C1B40 /* Cardboard.h */,
+				705420AE1BC5C306006C1B40 /* Cardboard.mm */,
 				7054208B1BC5B964006C1B40 /* CardboardCore.h */,
 				7054208D1BC5B964006C1B40 /* Info.plist */,
 			);
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				705420A21BC5BCB1006C1B40 /* CardboardCore.h in Headers */,
+				705420AF1BC5C306006C1B40 /* Cardboard.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +337,7 @@
 		705420121BC5B58D006C1B40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jason Patterson";
 				TargetAttributes = {
@@ -405,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				705420B01BC5C306006C1B40 /* Cardboard.mm in Sources */,
 				705420921BC5B975006C1B40 /* Distortion.mm in Sources */,
 				705420981BC5B975006C1B40 /* ScreenParams.mm in Sources */,
 				705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */,
@@ -542,6 +551,7 @@
 		7054208F1BC5B964006C1B40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -556,12 +566,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonpatterson.CardboardCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		705420901BC5B964006C1B40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -595,6 +607,7 @@
 				705420251BC5B58E006C1B40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7054208E1BC5B964006C1B40 /* Build configuration list for PBXNativeTarget "CardboardCore" */ = {
 			isa = XCConfigurationList;
@@ -603,6 +616,7 @@
 				705420901BC5B964006C1B40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

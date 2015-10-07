@@ -14,7 +14,8 @@
 #include "ScreenParams.h"
 #include "Viewport.h"
 
-float GLKMathDegreesToRadians(float degrees) { return degrees * (M_PI / 180); };
+inline float GLKMathDegreesToRadians(float degrees) { return degrees * (M_PI / 180); };
+inline float GLKMathRadiansToDegrees(float radians) { return radians * (180 / M_PI); };
 
 namespace CardboardSDK
 {
@@ -137,7 +138,7 @@ void DistortionRenderer::updateViewports(Viewport *leftViewport, Viewport *right
     _viewportsChanged = false;
 }
 
-void DistortionRenderer::updateTextureAndDistortionMesh()
+void DistortionRenderer::updateDistortionMesh()
 {
     ScreenParams *screen = _headMountedDisplay->getScreen();
     CardboardDeviceParams *cardboardDeviceParams = _headMountedDisplay->getCardboard();
@@ -206,6 +207,14 @@ float DistortionRenderer::computeDistortionScale(Distortion *distortion, float s
     return distortion->distortionFactor((screenWidthM / 2.0f - interpupillaryDistanceM / 2.0f) / (screenWidthM / 4.0f));
 }
 
+DistortionRenderer::DistortionMesh* DistortionRenderer::leftEyeDistortionMesh() {
+    return _leftEyeDistortionMesh;
+}
+    
+DistortionRenderer::DistortionMesh* DistortionRenderer::rightEyeDistortionMesh() {
+    return _rightEyeDistortionMesh;
+}
+    
 // DistortionMesh
 
 DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
@@ -217,15 +226,16 @@ DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
                                                    float xEyeOffsetTexture, float yEyeOffsetTexture,
                                                    float viewportXTexture, float viewportYTexture,
                                                    float viewportWidthTexture, float viewportHeightTexture,
-                                                   bool vignetteEnabled) :
-    _indices(-1), _arrayBufferID(-1), _elementBufferID(-1)
+                                                   bool vignetteEnabled)
 {
-    GLfloat vertexData[14400];
-    
-    int vertexOffset = 0;
     
     const int rows = 40;
     const int cols = 40;
+    const int floatsPerVertex = 9;
+    _vertexCount = rows * cols * floatsPerVertex;
+    _vertexData = new float[_vertexCount];
+    
+    int vertexOffset = 0;
     
     const float vignetteSizeTanAngle = 0.05f;
     
@@ -273,22 +283,22 @@ DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
                 vignette = 1.0f - clamp(drTexture / vignetteSizeTexture, 0.0f, 1.0f);
             }
             
-            vertexData[(vertexOffset + 0)] = 2.0f * uScreen - 1.0f;
-            vertexData[(vertexOffset + 1)] = 2.0f * vScreen - 1.0f;
-            vertexData[(vertexOffset + 2)] = vignette;
-            vertexData[(vertexOffset + 3)] = uTextureRed;
-            vertexData[(vertexOffset + 4)] = vTextureRed;
-            vertexData[(vertexOffset + 5)] = uTextureGreen;
-            vertexData[(vertexOffset + 6)] = vTextureGreen;
-            vertexData[(vertexOffset + 7)] = uTextureBlue;
-            vertexData[(vertexOffset + 8)] = vTextureBlue;
+            _vertexData[(vertexOffset + 0)] = 2.0f * uScreen - 1.0f;
+            _vertexData[(vertexOffset + 1)] = 2.0f * vScreen - 1.0f;
+            _vertexData[(vertexOffset + 2)] = vignette;
+            _vertexData[(vertexOffset + 3)] = uTextureRed;
+            _vertexData[(vertexOffset + 4)] = vTextureRed;
+            _vertexData[(vertexOffset + 5)] = uTextureGreen;
+            _vertexData[(vertexOffset + 6)] = vTextureGreen;
+            _vertexData[(vertexOffset + 7)] = uTextureBlue;
+            _vertexData[(vertexOffset + 8)] = vTextureBlue;
             
-            vertexOffset += 9;
+            vertexOffset += floatsPerVertex;
         }
     }
     
-    _indices = 3158;
-    GLshort indexData[_indices];
+    _indexCount = 3158;
+    _indexData = new short[_indexCount];
 
     int indexOffset = 0;
     vertexOffset = 0;
@@ -296,7 +306,7 @@ DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
     {
         if (row > 0)
         {
-            indexData[indexOffset] = indexData[(indexOffset - 1)];
+            _indexData[indexOffset] = _indexData[(indexOffset - 1)];
             indexOffset++;
         }
         for (int col = 0; col < cols; col++)
@@ -312,10 +322,25 @@ DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
                     vertexOffset--;
                 }
             }
-            indexData[(indexOffset++)] = vertexOffset;
-            indexData[(indexOffset++)] = (vertexOffset + 40);
+            _indexData[(indexOffset++)] = vertexOffset;
+            _indexData[(indexOffset++)] = (vertexOffset + 40);
         }
         vertexOffset += 40;
+    }
+}
+    
+void DistortionRenderer::DistortionMesh::getData(float *vertexData, int *vertices, short *indexData, int *indices) {
+    if (vertexData) {
+        memcpy(vertexData, _vertexData, _vertexCount * sizeof(float));
+    }
+    if (vertices) {
+        *vertices = _vertexCount;
+    }
+    if (indexData) {
+        memcpy(indexData, _indexData, _indexCount * sizeof(short));
+    }
+    if (indices) {
+        *indices = _indexCount;
     }
 }
 
