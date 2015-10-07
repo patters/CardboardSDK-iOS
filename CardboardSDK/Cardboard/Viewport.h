@@ -23,10 +23,10 @@ struct Viewport
     int height;
 
     void setViewport(int x, int y, int width, int height);
-
+#ifndef CARDBOARD_CORE
     void setGLViewport();
     void setGLScissor();
-
+#endif
     CGRect toCGRect();
     NSString *toString();
 };

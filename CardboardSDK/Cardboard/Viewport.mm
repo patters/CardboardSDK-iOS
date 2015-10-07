@@ -5,9 +5,9 @@
 
 
 #include "Viewport.h"
-
+#ifndef CARDBOARD_CORE
 #import <OpenGLES/ES2/gl.h>
-
+#endif
 
 namespace CardboardSDK
 {
@@ -20,6 +20,8 @@ void Viewport::setViewport(int x, int y, int width, int height)
     this->height = height;
 }
 
+#ifndef CARDBOARD_CORE
+
 void Viewport::setGLViewport()
 {
     glViewport(x, y, width, height);
@@ -29,6 +31,8 @@ void Viewport::setGLScissor()
 {
     glScissor(x, y, width, height);
 }
+    
+#endif
 
 CGRect Viewport::toCGRect()
 {

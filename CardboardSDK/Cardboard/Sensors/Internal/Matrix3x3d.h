@@ -8,7 +8,9 @@
 
 #include "Vector3d.h"
 
+#ifndef CARDBOARD_CORE
 #import <GLKit/GLKit.h>
+#endif
 
 
 namespace CardboardSDK

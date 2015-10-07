@@ -74,6 +74,7 @@ float FieldOfView::top()
     return _top;
 }
 
+#ifndef CARDBOARD_CORE
 GLKMatrix4 FieldOfView::toPerspectiveMatrix(float near, float far)
 {
     float left = -tanf(GLKMathDegreesToRadians(_left)) * near;
@@ -83,7 +84,8 @@ GLKMatrix4 FieldOfView::toPerspectiveMatrix(float near, float far)
     GLKMatrix4 frustrum = GLKMatrix4MakeFrustum(left, right, bottom, top, near, far);
     return frustrum;
 }
-
+#endif
+    
 bool FieldOfView::equals(FieldOfView *other)
 {
     if (other == nullptr)

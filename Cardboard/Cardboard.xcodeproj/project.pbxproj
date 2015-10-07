@@ -56,6 +56,8 @@
 		7054209E1BC5BB56006C1B40 /* CoreDistortion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054209C1BC5BB56006C1B40 /* CoreDistortion.h */; settings = {ASSET_TAGS = (); }; };
 		705420A11BC5BC82006C1B40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 705420721BC5B6CA006C1B40 /* UIKit.framework */; };
 		705420A21BC5BCB1006C1B40 /* CardboardCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054208B1BC5B964006C1B40 /* CardboardCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		705420A31BC5BD9C006C1B40 /* CoreDistortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054209D1BC5BB56006C1B40 /* CoreDistortion.mm */; settings = {ASSET_TAGS = (); }; };
+		705420A41BC5C0B1006C1B40 /* Viewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203E1BC5B62E006C1B40 /* Viewport.mm */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -408,6 +410,8 @@
 				705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */,
 				705420941BC5B975006C1B40 /* FieldOfView.mm in Sources */,
 				705420911BC5B975006C1B40 /* CardboardDeviceParams.mm in Sources */,
+				705420A41BC5C0B1006C1B40 /* Viewport.mm in Sources */,
+				705420A31BC5BD9C006C1B40 /* CoreDistortion.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +546,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"CARDBOARD_CORE=1",
+				);
 				INFOPLIST_FILE = CardboardCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -558,6 +566,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = "CARDBOARD_CORE=1";
 				INFOPLIST_FILE = CardboardCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
