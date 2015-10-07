@@ -48,18 +48,14 @@
 		705420811BC5B91F006C1B40 /* DebugUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054207E1BC5B91F006C1B40 /* DebugUtils.h */; settings = {ASSET_TAGS = (); }; };
 		705420821BC5B91F006C1B40 /* GLHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054207F1BC5B91F006C1B40 /* GLHelpers.h */; settings = {ASSET_TAGS = (); }; };
 		705420831BC5B91F006C1B40 /* GLHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 705420801BC5B91F006C1B40 /* GLHelpers.m */; settings = {ASSET_TAGS = (); }; };
-		7054208C1BC5B964006C1B40 /* CardboardCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054208B1BC5B964006C1B40 /* CardboardCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		705420911BC5B975006C1B40 /* CardboardDeviceParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054202A1BC5B62E006C1B40 /* CardboardDeviceParams.mm */; settings = {ASSET_TAGS = (); }; };
 		705420921BC5B975006C1B40 /* Distortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054202E1BC5B62E006C1B40 /* Distortion.mm */; settings = {ASSET_TAGS = (); }; };
-		705420931BC5B975006C1B40 /* Eye.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420321BC5B62E006C1B40 /* Eye.mm */; settings = {ASSET_TAGS = (); }; };
 		705420941BC5B975006C1B40 /* FieldOfView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420341BC5B62E006C1B40 /* FieldOfView.mm */; settings = {ASSET_TAGS = (); }; };
-		705420951BC5B975006C1B40 /* GLStateBackup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420361BC5B62E006C1B40 /* GLStateBackup.mm */; settings = {ASSET_TAGS = (); }; };
 		705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420381BC5B62E006C1B40 /* HeadMountedDisplay.mm */; settings = {ASSET_TAGS = (); }; };
-		705420971BC5B975006C1B40 /* HeadTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203A1BC5B62E006C1B40 /* HeadTransform.mm */; settings = {ASSET_TAGS = (); }; };
 		705420981BC5B975006C1B40 /* ScreenParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203C1BC5B62E006C1B40 /* ScreenParams.mm */; settings = {ASSET_TAGS = (); }; };
-		705420991BC5B975006C1B40 /* Viewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203E1BC5B62E006C1B40 /* Viewport.mm */; settings = {ASSET_TAGS = (); }; };
-		7054209A1BC5B9AC006C1B40 /* HeadTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420571BC5B645006C1B40 /* HeadTracker.mm */; settings = {ASSET_TAGS = (); }; };
-		7054209B1BC5B9B1006C1B40 /* MagnetSensor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420591BC5B645006C1B40 /* MagnetSensor.mm */; settings = {ASSET_TAGS = (); }; };
+		7054209E1BC5BB56006C1B40 /* CoreDistortion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054209C1BC5BB56006C1B40 /* CoreDistortion.h */; settings = {ASSET_TAGS = (); }; };
+		705420A11BC5BC82006C1B40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 705420721BC5B6CA006C1B40 /* UIKit.framework */; };
+		705420A21BC5BCB1006C1B40 /* CardboardCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054208B1BC5B964006C1B40 /* CardboardCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +105,8 @@
 		705420891BC5B964006C1B40 /* CardboardCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardboardCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7054208B1BC5B964006C1B40 /* CardboardCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardboardCore.h; sourceTree = "<group>"; };
 		7054208D1BC5B964006C1B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7054209C1BC5BB56006C1B40 /* CoreDistortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDistortion.h; sourceTree = "<group>"; };
+		7054209D1BC5BB56006C1B40 /* CoreDistortion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDistortion.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				705420A11BC5BC82006C1B40 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +175,8 @@
 				7054202A1BC5B62E006C1B40 /* CardboardDeviceParams.mm */,
 				7054202D1BC5B62E006C1B40 /* Distortion.h */,
 				7054202E1BC5B62E006C1B40 /* Distortion.mm */,
+				7054209C1BC5BB56006C1B40 /* CoreDistortion.h */,
+				7054209D1BC5BB56006C1B40 /* CoreDistortion.mm */,
 				7054202F1BC5B62E006C1B40 /* DistortionRenderer.h */,
 				705420301BC5B62E006C1B40 /* DistortionRenderer.mm */,
 				705420311BC5B62E006C1B40 /* Eye.h */,
@@ -259,12 +260,12 @@
 				705420431BC5B62E006C1B40 /* Distortion.h in Headers */,
 				7054205C1BC5B645006C1B40 /* MagnetSensor.h in Headers */,
 				7054204D1BC5B62E006C1B40 /* HeadMountedDisplay.h in Headers */,
-				7054208C1BC5B964006C1B40 /* CardboardCore.h in Headers */,
 				7054206D1BC5B65A006C1B40 /* Vector3d.h in Headers */,
 				705420491BC5B62E006C1B40 /* FieldOfView.h in Headers */,
 				705420691BC5B65A006C1B40 /* OrientationEKF.h in Headers */,
 				705420511BC5B62E006C1B40 /* ScreenParams.h in Headers */,
 				705420811BC5B91F006C1B40 /* DebugUtils.h in Headers */,
+				7054209E1BC5BB56006C1B40 /* CoreDistortion.h in Headers */,
 				705420451BC5B62E006C1B40 /* DistortionRenderer.h in Headers */,
 				7054205A1BC5B645006C1B40 /* HeadTracker.h in Headers */,
 				7054203F1BC5B62E006C1B40 /* CardboardDeviceParams.h in Headers */,
@@ -278,6 +279,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				705420A21BC5BCB1006C1B40 /* CardboardCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,16 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				705420951BC5B975006C1B40 /* GLStateBackup.mm in Sources */,
-				7054209B1BC5B9B1006C1B40 /* MagnetSensor.mm in Sources */,
-				705420931BC5B975006C1B40 /* Eye.mm in Sources */,
-				705420991BC5B975006C1B40 /* Viewport.mm in Sources */,
 				705420921BC5B975006C1B40 /* Distortion.mm in Sources */,
 				705420981BC5B975006C1B40 /* ScreenParams.mm in Sources */,
 				705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */,
-				7054209A1BC5B9AC006C1B40 /* HeadTracker.mm in Sources */,
 				705420941BC5B975006C1B40 /* FieldOfView.mm in Sources */,
-				705420971BC5B975006C1B40 /* HeadTransform.mm in Sources */,
 				705420911BC5B975006C1B40 /* CardboardDeviceParams.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
