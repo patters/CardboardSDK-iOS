@@ -48,6 +48,18 @@
 		705420811BC5B91F006C1B40 /* DebugUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054207E1BC5B91F006C1B40 /* DebugUtils.h */; settings = {ASSET_TAGS = (); }; };
 		705420821BC5B91F006C1B40 /* GLHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054207F1BC5B91F006C1B40 /* GLHelpers.h */; settings = {ASSET_TAGS = (); }; };
 		705420831BC5B91F006C1B40 /* GLHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 705420801BC5B91F006C1B40 /* GLHelpers.m */; settings = {ASSET_TAGS = (); }; };
+		7054208C1BC5B964006C1B40 /* CardboardCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7054208B1BC5B964006C1B40 /* CardboardCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		705420911BC5B975006C1B40 /* CardboardDeviceParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054202A1BC5B62E006C1B40 /* CardboardDeviceParams.mm */; settings = {ASSET_TAGS = (); }; };
+		705420921BC5B975006C1B40 /* Distortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054202E1BC5B62E006C1B40 /* Distortion.mm */; settings = {ASSET_TAGS = (); }; };
+		705420931BC5B975006C1B40 /* Eye.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420321BC5B62E006C1B40 /* Eye.mm */; settings = {ASSET_TAGS = (); }; };
+		705420941BC5B975006C1B40 /* FieldOfView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420341BC5B62E006C1B40 /* FieldOfView.mm */; settings = {ASSET_TAGS = (); }; };
+		705420951BC5B975006C1B40 /* GLStateBackup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420361BC5B62E006C1B40 /* GLStateBackup.mm */; settings = {ASSET_TAGS = (); }; };
+		705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420381BC5B62E006C1B40 /* HeadMountedDisplay.mm */; settings = {ASSET_TAGS = (); }; };
+		705420971BC5B975006C1B40 /* HeadTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203A1BC5B62E006C1B40 /* HeadTransform.mm */; settings = {ASSET_TAGS = (); }; };
+		705420981BC5B975006C1B40 /* ScreenParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203C1BC5B62E006C1B40 /* ScreenParams.mm */; settings = {ASSET_TAGS = (); }; };
+		705420991BC5B975006C1B40 /* Viewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7054203E1BC5B62E006C1B40 /* Viewport.mm */; settings = {ASSET_TAGS = (); }; };
+		7054209A1BC5B9AC006C1B40 /* HeadTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420571BC5B645006C1B40 /* HeadTracker.mm */; settings = {ASSET_TAGS = (); }; };
+		7054209B1BC5B9B1006C1B40 /* MagnetSensor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705420591BC5B645006C1B40 /* MagnetSensor.mm */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +106,9 @@
 		7054207E1BC5B91F006C1B40 /* DebugUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugUtils.h; sourceTree = "<group>"; };
 		7054207F1BC5B91F006C1B40 /* GLHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLHelpers.h; sourceTree = "<group>"; };
 		705420801BC5B91F006C1B40 /* GLHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLHelpers.m; sourceTree = "<group>"; };
+		705420891BC5B964006C1B40 /* CardboardCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardboardCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7054208B1BC5B964006C1B40 /* CardboardCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardboardCore.h; sourceTree = "<group>"; };
+		7054208D1BC5B964006C1B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +124,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		705420851BC5B964006C1B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -121,6 +143,7 @@
 				705420711BC5B6CA006C1B40 /* OpenGLES.framework */,
 				705420721BC5B6CA006C1B40 /* UIKit.framework */,
 				7054201D1BC5B58D006C1B40 /* Cardboard */,
+				7054208A1BC5B964006C1B40 /* CardboardCore */,
 				7054201C1BC5B58D006C1B40 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				7054201B1BC5B58D006C1B40 /* Cardboard.framework */,
+				705420891BC5B964006C1B40 /* CardboardCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +235,15 @@
 			path = ../../CardboardSDK/Misc;
 			sourceTree = "<group>";
 		};
+		7054208A1BC5B964006C1B40 /* CardboardCore */ = {
+			isa = PBXGroup;
+			children = (
+				7054208B1BC5B964006C1B40 /* CardboardCore.h */,
+				7054208D1BC5B964006C1B40 /* Info.plist */,
+			);
+			path = CardboardCore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -226,6 +259,7 @@
 				705420431BC5B62E006C1B40 /* Distortion.h in Headers */,
 				7054205C1BC5B645006C1B40 /* MagnetSensor.h in Headers */,
 				7054204D1BC5B62E006C1B40 /* HeadMountedDisplay.h in Headers */,
+				7054208C1BC5B964006C1B40 /* CardboardCore.h in Headers */,
 				7054206D1BC5B65A006C1B40 /* Vector3d.h in Headers */,
 				705420491BC5B62E006C1B40 /* FieldOfView.h in Headers */,
 				705420691BC5B65A006C1B40 /* OrientationEKF.h in Headers */,
@@ -237,6 +271,13 @@
 				7054204B1BC5B62E006C1B40 /* GLStateBackup.h in Headers */,
 				7054204F1BC5B62E006C1B40 /* HeadTransform.h in Headers */,
 				705420821BC5B91F006C1B40 /* GLHelpers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705420861BC5B964006C1B40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +302,24 @@
 			productReference = 7054201B1BC5B58D006C1B40 /* Cardboard.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		705420881BC5B964006C1B40 /* CardboardCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7054208E1BC5B964006C1B40 /* Build configuration list for PBXNativeTarget "CardboardCore" */;
+			buildPhases = (
+				705420841BC5B964006C1B40 /* Sources */,
+				705420851BC5B964006C1B40 /* Frameworks */,
+				705420861BC5B964006C1B40 /* Headers */,
+				705420871BC5B964006C1B40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardboardCore;
+			productName = CardboardCore;
+			productReference = 705420891BC5B964006C1B40 /* CardboardCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -271,6 +330,9 @@
 				ORGANIZATIONNAME = "Jason Patterson";
 				TargetAttributes = {
 					7054201A1BC5B58D006C1B40 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					705420881BC5B964006C1B40 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -288,12 +350,20 @@
 			projectRoot = "";
 			targets = (
 				7054201A1BC5B58D006C1B40 /* Cardboard */,
+				705420881BC5B964006C1B40 /* CardboardCore */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		705420191BC5B58D006C1B40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705420871BC5B964006C1B40 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -324,6 +394,24 @@
 				705420831BC5B91F006C1B40 /* GLHelpers.m in Sources */,
 				7054206A1BC5B65A006C1B40 /* OrientationEKF.mm in Sources */,
 				705420501BC5B62E006C1B40 /* HeadTransform.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705420841BC5B964006C1B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				705420951BC5B975006C1B40 /* GLStateBackup.mm in Sources */,
+				7054209B1BC5B9B1006C1B40 /* MagnetSensor.mm in Sources */,
+				705420931BC5B975006C1B40 /* Eye.mm in Sources */,
+				705420991BC5B975006C1B40 /* Viewport.mm in Sources */,
+				705420921BC5B975006C1B40 /* Distortion.mm in Sources */,
+				705420981BC5B975006C1B40 /* ScreenParams.mm in Sources */,
+				705420961BC5B975006C1B40 /* HeadMountedDisplay.mm in Sources */,
+				7054209A1BC5B9AC006C1B40 /* HeadTracker.mm in Sources */,
+				705420941BC5B975006C1B40 /* FieldOfView.mm in Sources */,
+				705420971BC5B975006C1B40 /* HeadTransform.mm in Sources */,
+				705420911BC5B975006C1B40 /* CardboardDeviceParams.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +539,38 @@
 			};
 			name = Release;
 		};
+		7054208F1BC5B964006C1B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CardboardCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonpatterson.CardboardCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		705420901BC5B964006C1B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CardboardCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonpatterson.CardboardCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +588,14 @@
 			buildConfigurations = (
 				705420241BC5B58E006C1B40 /* Debug */,
 				705420251BC5B58E006C1B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7054208E1BC5B964006C1B40 /* Build configuration list for PBXNativeTarget "CardboardCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7054208F1BC5B964006C1B40 /* Debug */,
+				705420901BC5B964006C1B40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
