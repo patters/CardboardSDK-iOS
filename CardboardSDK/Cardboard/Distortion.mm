@@ -12,8 +12,6 @@ namespace CardboardSDK
 
 Distortion::Distortion()
 {
-    _coefficients[0] = 0.441f;
-    _coefficients[1] = 0.156f;
 }
 
 Distortion::Distortion(Distortion *other)

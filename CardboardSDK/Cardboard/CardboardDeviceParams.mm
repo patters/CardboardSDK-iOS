@@ -20,7 +20,10 @@ CardboardDeviceParams::CardboardDeviceParams() :
     _verticalDistanceToLensCenter(0.035f),
     _screenToLensDistance(0.042f)
 {
+    float coefficients[2] = {0.441f, 0.156f};
     _distortion = new Distortion();
+    _distortion->setCoefficients(coefficients);
+
     _maximumLeftEyeFOV = new FieldOfView();
 }
 
