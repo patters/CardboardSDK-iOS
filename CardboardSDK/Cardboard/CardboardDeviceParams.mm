@@ -24,7 +24,7 @@ CardboardDeviceParams::CardboardDeviceParams() :
     _distortion = new Distortion();
     _distortion->setCoefficients(coefficients);
 
-    _maximumLeftEyeFOV = new FieldOfView();
+    _maximumLeftEyeFOV = new FieldOfView(40.0f);
 }
 
 CardboardDeviceParams::CardboardDeviceParams(CardboardDeviceParams* params)

@@ -10,15 +10,15 @@
 namespace CardboardSDK
 {
 
-FieldOfView::FieldOfView() :
-    _left(s_defaultViewAngle),
-    _right(s_defaultViewAngle),
-    _bottom(s_defaultViewAngle),
-    _top(s_defaultViewAngle)
+FieldOfView::FieldOfView(float viewAngle) :
+    _left(viewAngle),
+    _right(viewAngle),
+    _bottom(viewAngle),
+    _top(viewAngle)
 {
 }
 
-FieldOfView::FieldOfView(float left, float right, float bottom, float top)
+    FieldOfView::FieldOfView(float left, float right, float bottom, float top)
 {
     _left = left;
     _right = right;

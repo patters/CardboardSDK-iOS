@@ -22,7 +22,7 @@ Eye::Eye(Type eyeType) :
     _lastZFar(0)
 {
     _viewport = new Viewport();
-    _fov = new FieldOfView();
+    _fov = new FieldOfView(40.0f);
 }
 
 Eye::~Eye()

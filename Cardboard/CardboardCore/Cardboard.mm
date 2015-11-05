@@ -33,8 +33,8 @@ inline float GLKMathRadiansToDegrees(float radians) { return radians * (180 / M_
     self = [super init];
     if (self) {
         _headMountedDisplay = new CardboardSDK::HeadMountedDisplay([UIScreen mainScreen]);
-        _leftEyeFOV = new CardboardSDK::FieldOfView();
-        _rightEyeFOV = new CardboardSDK::FieldOfView();
+        _leftEyeFOV = new CardboardSDK::FieldOfView(_headMountedDisplay->getCardboard()->maximumLeftEyeFOV());
+        _rightEyeFOV = new CardboardSDK::FieldOfView(_headMountedDisplay->getCardboard()->maximumLeftEyeFOV());
         
         _distortionRenderer = new CardboardSDK::DistortionRenderer();
 
