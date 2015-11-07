@@ -12,25 +12,35 @@
 
 namespace CardboardSDK
 {
-
-CardboardDeviceParams::CardboardDeviceParams() :
-    _vendor(@"com.google"),
-    _model(@"cardboard"),
-    _interLensDistance(0.06f),
-    _verticalDistanceToLensCenter(0.035f),
-    _screenToLensDistance(0.042f)
+    
+CardboardDeviceParams::CardboardDeviceParams(NSString *vendor,
+                                             NSString *model,
+                                             NSString *version,
+                                             float interLensDistance,
+                                             float verticalDistanceToLensCenter,
+                                             float screenToLensDistance,
+                                             float maxFOV,
+                                             float distortionK1,
+                                             float distortionK2):
+    _vendor([vendor copy]),
+    _model([model copy]),
+    _version([version copy]),
+    _interLensDistance(interLensDistance),
+    _verticalDistanceToLensCenter(verticalDistanceToLensCenter),
+    _screenToLensDistance(screenToLensDistance)
 {
-    float coefficients[2] = {0.441f, 0.156f};
+    _maximumLeftEyeFOV = new FieldOfView(maxFOV);
+
+    float coefficients[2] = {distortionK1, distortionK2};
     _distortion = new Distortion();
     _distortion->setCoefficients(coefficients);
-
-    _maximumLeftEyeFOV = new FieldOfView(40.0f);
 }
 
 CardboardDeviceParams::CardboardDeviceParams(CardboardDeviceParams* params)
 {
     _vendor = params->_vendor;
     _model = params->_model;
+    _version = params->_version;
     
     _interLensDistance = params->_interLensDistance;
     _verticalDistanceToLensCenter = params->_verticalDistanceToLensCenter;
@@ -50,10 +60,15 @@ NSString *CardboardDeviceParams::vendor()
 {
     return _vendor;
 }
-
+    
 NSString *CardboardDeviceParams::model()
 {
     return _model;
+}
+
+NSString *CardboardDeviceParams::version()
+{
+    return _version;
 }
 
 float CardboardDeviceParams::interLensDistance()

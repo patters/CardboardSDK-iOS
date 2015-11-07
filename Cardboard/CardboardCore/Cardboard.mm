@@ -15,6 +15,42 @@
 #import "Distortion.h"
 #import "ScreenParams.h"
 
+static CardboardSDK::CardboardDeviceParams CardboardJun2014 = CardboardSDK::CardboardDeviceParams(
+    @"com.google",
+    @"Cardboard",
+    @"v1",
+    0.060f,
+    0.035f,
+    0.042f,
+    40.0f,
+    0.441f,
+    0.156f
+);
+
+static CardboardSDK::CardboardDeviceParams CardboardMay2015 = CardboardSDK::CardboardDeviceParams(
+    @"com.google",
+    @"Cardboard",
+    @"v2",
+    0.064f,
+    0.035f,
+    0.039f,
+    60.0f,
+    0.34f,
+    0.55f
+);
+
+static CardboardSDK::CardboardDeviceParams GoggleTechC1Glass = CardboardSDK::CardboardDeviceParams(
+    @"net.goggletech",
+    @"Go4D C1-Glass",
+    @"v1",
+    0.065f,
+    0.036f,
+    0.058f,
+    50.0f,
+    0.3f,
+    0.0f
+);
+
 inline float GLKMathDegreesToRadians(float degrees) { return degrees * (M_PI / 180); };
 inline float GLKMathRadiansToDegrees(float radians) { return radians * (180 / M_PI); };
 
@@ -29,10 +65,22 @@ inline float GLKMathRadiansToDegrees(float radians) { return radians * (180 / M_
 
 @implementation Cardboard
 
-- (id)init {
+- (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType {
     self = [super init];
     if (self) {
-        _headMountedDisplay = new CardboardSDK::HeadMountedDisplay([UIScreen mainScreen]);
+        CardboardSDK::CardboardDeviceParams *device = nil;
+        switch (deviceType) {
+            case CardboardDeviceTypeCardboardJun2014:
+                device = &CardboardJun2014;
+                break;
+            case CardboardDeviceTypeCardboardMay2015:
+                device = &CardboardMay2015;
+                break;
+            case CardboardDeviceTypeGoggleTechC1Glass:
+                device = &GoggleTechC1Glass;
+                break;
+        }
+        _headMountedDisplay = new CardboardSDK::HeadMountedDisplay([UIScreen mainScreen], device);
         _leftEyeFOV = new CardboardSDK::FieldOfView(_headMountedDisplay->getCardboard()->maximumLeftEyeFOV());
         _rightEyeFOV = new CardboardSDK::FieldOfView(_headMountedDisplay->getCardboard()->maximumLeftEyeFOV());
         

@@ -20,7 +20,7 @@ class ScreenParams;
 class HeadMountedDisplay
 {
   public:
-    HeadMountedDisplay(UIScreen *screen);
+    HeadMountedDisplay(UIScreen *screen, CardboardDeviceParams *device);
     HeadMountedDisplay(HeadMountedDisplay *hmd);
     ~HeadMountedDisplay();
     

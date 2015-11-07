@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, CardboardDeviceType) {
+    CardboardDeviceTypeCardboardJun2014,
+    CardboardDeviceTypeCardboardMay2015,
+    CardboardDeviceTypeGoggleTechC1Glass
+};
+
 @interface Cardboard : NSObject
 @property (nonatomic, readonly) NSInteger vertexCount;
 @property (nonatomic, readonly) NSInteger indexCount;
 
+- (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType;
 - (void)update;
 
 - (void)getVerticesForLeftEye:(float *)vertices;

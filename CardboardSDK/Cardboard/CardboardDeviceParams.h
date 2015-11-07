@@ -20,12 +20,21 @@ class FieldOfView;
 class CardboardDeviceParams
 {
   public:
-    CardboardDeviceParams();
+    CardboardDeviceParams(NSString *vendor,
+                          NSString *model,
+                          NSString *version,
+                          float interLensDistance,
+                          float verticalDistanceToLensCenter,
+                          float screenToLensDistance,
+                          float maxFOV,
+                          float distortionK1,
+                          float distortionK2);
     CardboardDeviceParams(CardboardDeviceParams* params);
     ~CardboardDeviceParams();
     
     NSString *vendor();
     NSString *model();
+    NSString *version();
     
     float interLensDistance();
     
