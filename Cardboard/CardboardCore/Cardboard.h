@@ -18,12 +18,12 @@ typedef NS_ENUM(NSUInteger, CardboardDeviceType) {
 @property (nonatomic, readonly) NSInteger vertexCount;
 @property (nonatomic, readonly) NSInteger indexCount;
 
-- (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDeviceType:(CardboardDeviceType)deviceType NS_DESIGNATED_INITIALIZER;
 - (void)update;
 
-- (void)getVerticesForLeftEye:(float *)vertices;
-- (void)getIndicesForLeftEye:(short *)indices;
-- (void)getVerticesForRightEye:(float *)vertices;
-- (void)getIndicesForRightEye:(short *)indices;
+- (void)getVerticesForLeftEye:(float * __nonnull)vertices;
+- (void)getIndicesForLeftEye:(short * __nonnull)indices;
+- (void)getVerticesForRightEye:(float * __nonnull)vertices;
+- (void)getIndicesForRightEye:(short * __nonnull)indices;
 
 @end
