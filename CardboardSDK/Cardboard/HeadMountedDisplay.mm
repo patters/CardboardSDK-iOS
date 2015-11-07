@@ -16,7 +16,7 @@ namespace CardboardSDK
 HeadMountedDisplay::HeadMountedDisplay(UIScreen *screen, CardboardDeviceParams *device)
 {
     _screen = new ScreenParams(screen);
-    _cardboard = device;
+    _cardboard = new CardboardDeviceParams(device);
 }
 
 HeadMountedDisplay::HeadMountedDisplay(HeadMountedDisplay *hmd)
