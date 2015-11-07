@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, CardboardDeviceType) {
 @property (nonatomic, readonly) NSInteger vertexCount;
 @property (nonatomic, readonly) NSInteger indexCount;
 
-- (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType;
+- (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType NS_DESIGNATED_INITIALIZER;
 - (void)update;
 
 - (void)getVerticesForLeftEye:(float *)vertices;

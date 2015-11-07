@@ -65,6 +65,10 @@ inline float GLKMathRadiansToDegrees(float radians) { return radians * (180 / M_
 
 @implementation Cardboard
 
+- (instancetype)init {
+    return [self initWithDeviceType:CardboardDeviceTypeCardboardJun2014];
+}
+
 - (instancetype)initWithDeviceType:(CardboardDeviceType)deviceType {
     self = [super init];
     if (self) {
