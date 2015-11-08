@@ -31,6 +31,7 @@
 
 - (CGSize)orientationAwareSize;
 - (CGSize)sizeFixedToPortrait;
+- (CGSize)sizeFixedToLandscape;
 
 @end
 
@@ -38,6 +39,11 @@
 
 - (CGSize)orientationAwareSize
 {
+    if (CBScreenIsIphone()) {
+        // Force landscape geometry on iPhone
+        return [self sizeFixedToLandscape];
+    }
+    
     // Starting on iOS 8 bounds are orientation dependepent
     CGSize screenSize = self.bounds.size;
     if ((NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1)
@@ -52,6 +58,12 @@
 {
     CGSize size = self.bounds.size;
     return CGSizeMake(MIN(size.width, size.height), MAX(size.width, size.height));
+}
+
+- (CGSize)sizeFixedToLandscape
+{
+    CGSize size = self.bounds.size;
+    return CGSizeMake(MAX(size.width, size.height), MIN(size.width, size.height));
 }
 
 @end
