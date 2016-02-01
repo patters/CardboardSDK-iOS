@@ -54,6 +54,7 @@ class DistortionRenderer
     {
       public:
         DistortionMesh();
+        ~DistortionMesh();
         DistortionMesh(Distortion *distortionRed,
                        Distortion *distortionGreen,
                        Distortion *distortionBlue,

@@ -329,6 +329,13 @@ DistortionRenderer::DistortionMesh::DistortionMesh(Distortion *distortionRed,
     }
 }
     
+DistortionRenderer::DistortionMesh::~DistortionMesh() {
+    if (_vertexData) delete[] _vertexData;
+    _vertexData = nullptr;
+    if (_indexData) delete[] _indexData;
+    _indexData = nullptr;
+}
+
 void DistortionRenderer::DistortionMesh::getData(float *vertexData, int *vertices, short *indexData, int *indices) {
     if (vertexData) {
         memcpy(vertexData, _vertexData, _vertexCount * sizeof(float));
